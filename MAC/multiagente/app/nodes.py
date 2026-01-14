@@ -5,10 +5,10 @@ from typing import List
 
 from langgraph.types import Command
 from langgraph.graph import END
-from multiagente.app.memory import save_order
 
 from langchain_core.messages import HumanMessage, AIMessage, BaseMessage
-
+from multiagente.app.memory import save_order
+from multiagente.app.memory import save_feedback
 from multiagente.app.llm import llm_general
 from multiagente.app.schemas import InterestSchema, FeedbackSchema
 from multiagente.tools.tools_carrito import add_to_cart, view_cart, checkout
@@ -118,11 +118,13 @@ def commerce_agent(state) -> Command:
 def create_order_agent(state) -> Command:
     id_venta = str(uuid.uuid4())
 
-    pedido = {
-        "id_venta": id_venta,
-        "fecha": datetime.now().isoformat(),
-        "estado": "confirmado"
-    }
+   pedido = {
+    "id_venta": id_venta,
+    "fecha": datetime.now().isoformat(),
+    "estado": "confirmado"
+}
+    save_order(pedido)
+
 
     with open("pedidos.json", "a", encoding="utf-8") as f:
         f.write(json.dumps(pedido, ensure_ascii=False) + "\n")
@@ -157,6 +159,7 @@ def feedback_agent(state) -> Command:
         "comentario": FeedbackSchema.comentario,
         "fecha": datetime.now().isoformat()
     }
+    save_feedback(data)
 
     with open("feedback.json", "a", encoding="utf-8") as f:
         f.write(json.dumps(data, ensure_ascii=False) + "\n")
@@ -169,4 +172,5 @@ def feedback_agent(state) -> Command:
             "messages": state["messages"] + [AIMessage(content=r)]
         }
     )
+
 
