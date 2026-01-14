@@ -50,31 +50,83 @@ st.chat_message("assistant").write(r)
 
 
 # Carrito de compras UI
-st.header("🛒 Carrito")
-for i, item in enumerate(st.session_state["carrito"]):
-    col1, col2, col3 = st.columns([4,1,1])
-    col1.write(f"{item['nombre']} - ${item['precio']}")
-    cantidad = col2.number_input("Cantidad", min_value=1, value=item['cantidad'], key=f"cant_{i}")
-    col2.write(cantidad)
-    if col3.button("Eliminar", key=f"del_{i}"):
-        st.session_state["carrito"].pop(i)
+st.header("Carrito")
+
+inventario = cargar_inventario()
+
+for i, item in enumerate(st.session_state.carrito):
+    col1, col2, col3 = st.columns([4, 2, 1])
+
+    col1.write(f"**{item['nombre']}**  \n${item['precio']} c/u")
+
+    nueva_cantidad = col2.number_input(
+        "Cantidad",
+        min_value=1,
+        value=item["cantidad"],
+        key=f"cant_{item['id']}"
+    )
+
+    # Actualizar cantidad
+    if nueva_cantidad != item["cantidad"]:
+        stock = stock_disponible(item["id"], inventario)
+        if nueva_cantidad <= stock + item["cantidad"]:
+            item["cantidad"] = nueva_cantidad
+        else:
+            st.warning("Stock insuficiente")
+
+    if col3.button("Eliminar", key=f"del_{item['id']}"):
+        st.session_state.carrito.pop(i)
         st.rerun()
 
-# Agregar producto al carrito
-with st.expander("Agregar producto al carrito"):
-    with open("./data/inventario.json","r") as f:
-        inventario = json.load(f)
-    opciones = {p["nombre"]:p for p in inventario}
-    seleccion = st.selectbox("Producto", list(opciones.keys()))
+
+# Agregar productos
+with st.expander("Agregar producto"):
+    opciones = {p["nombre"]: p for p in inventario}
+    seleccion = st.selectbox("Producto", opciones.keys())
     cantidad = st.number_input("Cantidad", min_value=1, value=1)
+
     if st.button("Agregar al carrito"):
         producto = opciones[seleccion]
-        st.session_state["carrito"].append({
-            "id": producto["id"],
-            "nombre": producto["nombre"],
-            "precio": producto["precio"],
-            "cantidad": cantidad
-        })
-        st.success(f"{producto['nombre']} agregado al carrito")
+
+        stock = producto["cantidad"]
+        en_carrito = next(
+            (x for x in st.session_state.carrito if x["id"] == producto["id"]),
+            None
+        )
+
+        cantidad_actual = en_carrito["cantidad"] if en_carrito else 0
+
+        if cantidad + cantidad_actual > stock:
+            st.error("Stock insuficiente")
+        else:
+            if en_carrito:
+                # Reemplaza cantidad
+                en_carrito["cantidad"] = cantidad
+            else:
+                st.session_state.carrito.append({
+                    "id": producto["id"],
+                    "nombre": producto["nombre"],
+                    "precio": producto["precio"],
+                    "cantidad": cantidad
+                })
+            st.success("Producto agregado o actualizado")
+            st.rerun()
+
+# actualiza inventario
+
+if st.session_state.carrito:
+    if st.button("Confirmar compra"):
+        for item in st.session_state.carrito:
+            p = next(p for p in inventario if p["id"] == item["id"])
+            p["cantidad"] -= item["cantidad"]
+
+        guardar_inventario(inventario)
+        st.session_state.carrito = []
+        st.success("Compra realizada y stock actualizado")
         st.rerun()
-        
+
+
+
+
+
+
