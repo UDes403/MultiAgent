@@ -5,6 +5,11 @@ from datetime import datetime
 import chromadb
 from langchain_core.messages import HumanMessage, AIMessage
 from multiagente.app.graph_builder import graph_builder
+from multiagente.app.inventario import (
+    cargar_inventario,
+    guardar_inventario,
+    stock_disponible
+)
 
 # Inicializar cliente de ChromaDB
 cliente = chromadb.PersistentClient(path="./chromadb")
@@ -124,6 +129,7 @@ if st.session_state.carrito:
         st.session_state.carrito = []
         st.success("Compra realizada y stock actualizado")
         st.rerun()
+
 
 
 
