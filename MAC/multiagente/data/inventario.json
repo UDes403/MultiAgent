@@ -1,0 +1,121 @@
+[
+    {
+        "id": 1,
+        "nombre": "Laptop",
+        "categoria": "oficina",
+        "descripcion": "Portátil HP 15-fd0286ns",
+        "detalle":"Windows 11 HomeIntel® Core™ i5 1334U 16 GB RAM1 TB SSD15.6 FHDGráficos Intel® Iris® Xnü",
+        "precio": 649.00,
+        "stock": 50
+    },
+    {
+        "id": 2,
+        "nombre": "Raton Inalambrico",
+        "categoria": "gaming",
+        "descripcion": "Raton Inalambrico HP200",
+        "detalle":"Batería AAA incluida -Tecnología de LED rojo y sensor óptico -Alcance inalámbrico de hasta 10 metros",
+        "precio": 14,
+        "stock":79
+    },   
+    {
+        "id": 3,
+        "nombre": "Teclado Inalambrico",
+        "categoria": "gaming",
+        "descripcion": "Teclado Inalambrico HP235",
+        "detalle":"Una conexión USB inalámbrica -Batería de 16 meses de duración -Teclado tipo chiclet-Hasta 1600 ppp",
+        "precio": 14.99,
+        "stock":6
+
+    },
+    {   "id":4,
+        "nombre": "Monitor",
+        "categoria": "gaming",
+        "descripcion": "Monitor HP 24mh FHD",
+        "detalle":"Pantalla IPS Full HD de 23.8 pulgadas -Altavoces integrados -Conectividad HDMI y VGA",
+        "precio": 297.00,
+        "stock":15
+
+    },
+    {   "id":5,
+        "nombre": "Impresora multifunción HP Envy 6530e",
+        "categoria": "oficina",
+        "descripcion": "Impresión, copia, escaneado y fax móvil Color Impresora con seguridad dinámica habilitada Velocidad de impresión de hasta 10 ppm (negro) y 7 ppm (color)Conexión inalámbrica; HP+; Compatible con el servicio HP Instant Ink",
+        "detalle":"Pantalla IPS Full HD de 23.8 pulgadas -Altavoces integrados -Conectividad HDMI y VGA",
+        "precio": 86.70,
+        "stock":56
+    },
+    {   "id":6,
+        "nombre": "Auriculares gaming HyperX Cloud II",
+        "categoria": "gaming",
+        "descripcion": "Impresión, copia, escaneado y fax móvil Color",
+        "detalle":"Impresora con seguridad dinámica habilitada Velocidad de impresión de hasta 10 ppm (negro) y 7 ppm (color)Conexión inalámbrica; HP+; Compatible con el servicio HP Instant Ink",
+        "precio": 86.70,
+        "stock":23
+    },
+    {   "id":7,
+        "nombre": "Funda protectora reversible HP",
+        "categoria": "oficina",
+        "descripcion": "Gracias al resistente neopreno, esta funda reversible para portátil te ayuda a evitar golpes y rasguños en tu ordenador.",
+        "detalle":"Dimensiones(ancho x fondo x alto) 37 × 27 × 1 cm",
+        "precio": 17.50,
+        "stock":87
+ 
+    },
+    {   "id":8,
+        "nombre": "Base HP USB-C G5",
+        "categoria": "gaming",
+        "descripcion": "Solución de expansión elegante y moderna para el escritorio de trabajo en casa u oficina",
+        "detalle":"Conecta tu portátil con USB-C® a tus monitores, accesorios y redes cableadas con la elegante, versátil y práctica base de acoplamiento HP USB-C® G5.",
+        "precio": 153.20,
+        "stock":42
+    },
+    {   "id":9,
+        "nombre": "Micrófono HyperX ProCast",
+        "categoria": "gaming",
+        "descripcion": "Micrófono de condensador profesional con una conexión XLR[1] ",
+        "detalle":"cuenta con un filtro de paso alto conmutable de 80 Hz y -10 dB PAD",
+        "precio": 149.99,
+        "stock":20
+    },
+    {   "id":10,
+        "nombre": "Concentrador multipuerto universal USB-C HP",
+        "categoria": "gaming",
+        "descripcion": "Conecte sus periféricos a un concentrador para ampliar su conectividad",
+        "detalle":"universal USB-C HP, ahora compatible con cualquier ordenador con USB-C®[1]. 7 puertos, 1 cable de conexión",
+        "precio": 89.99,
+        "stock":33
+
+    },
+    {   "id":11,
+        "nombre": "Adaptador HP USB-C a RJ45 G2",
+        "categoria": "oficina",
+        "descripcion": "Convierta tu puerto USB-C™ en una conexión Ethernet por cable y acceda de forma segura a redes corporativas",
+        "detalle":"Sistemas operativos compatibles: Windows 11- Windows 10",
+        "precio": 89.99,
+        "stock":18 
+    },
+    {   "id":12,
+        "nombre": "HP Nano Keyed Cable Lock",
+        "categoria": "oficina",
+        "descripcion": " portátil o tablet seguro en la oficina y en las áreas de mucha actividad",
+        "detalle":"Compatible con HP Elite x2 1012 G2 HP Pro x2 612 G2",
+        "precio": 29.10,
+        "stock":36
+    },
+    {   "id":13,
+        "nombre": "Lápiz digital ligero HP 1.51 MPP compatible con Windows",
+        "categoria": "oficina",
+        "descripcion": "Bolígrafo digital ligero para uso exclusivo con portátiles Pavilion",
+        "detalle":"lápiz HP MPP 1.51[1]. Un lápiz compatible con Microsoft con dos botones personalizables",
+        "precio": 69.99,
+        "stock":3
+    },
+    {   "id":14,
+        "nombre": "Cámara web HP 320 FHD 1080p",
+        "categoria": "oficina",
+        "descripcion": "compatible con Zoom, Chrome y Microsoft Teams",
+        "detalle":"full HD 1080p -micrófono integrado. -gran angular 66°",
+        "precio": 34.59,
+        "stock": 0
+    }
+]
