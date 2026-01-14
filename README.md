@@ -1,8 +1,8 @@
-## 🤖 Multi Agente de Atencion al Cliente.
+# 🤖 Multi Agente de Atencion al Cliente.
 
 Multiagente conversacional basado en arquitectura multi-agente usando LangGraph, Ollama, ChromaDB y Streamlit.
 
-# 🚀 Características
+## 🚀 Características
 
 <li> 100 % local </li>
 <li> Arquitectura multi-agente </li>
@@ -10,25 +10,26 @@ Multiagente conversacional basado en arquitectura multi-agente usando LangGraph,
 <li> Persistencia de pedidos y feedback </li>
 <li> UI conversacional</li>
 
-# 🦾 Agentes
+## 🦾 Agentes
 <li> Recepcionista </li>
 <li> Promotor </li>
 <li> Asesor </li>
 <li> Vendedor </li>
 <li> Encuestador </li>
 
-# 📦 Requisitos
+## 📦 Requisitos
 <li> Python 3.10+ </li>
 <li> Ollama </li>
 
-# ⚙️ Instalación
-git clone https://github.com/UDes403/MultiAgent
-cd multi-agente-ventas
-pip install -r requirements.txt
-ollama run llama3
+## ⚙️ Instalación
+<li> git clone https://github.com/UDes403/MultiAgent </li>
+<li> cd multi-agente-ventas </li>
+<li> pip install -r requirements.txt </li>
+<li> ollama run llama3 </li>
 
-
+## Ejecución
 streamlit run interfaz.py
+
 
 
 
